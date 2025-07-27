@@ -1,0 +1,48 @@
+# =========================
+# Python / Django
+# =========================
+__pycache__/
+*.py[cod]
+*.pyd
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+.env
+.env.*
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Django specific
+/staticfiles/
+/media/
+
+# =========================
+# Node / React
+# =========================
+node_modules/
+build/
+dist/
+.npm/
+.env.local
+.env.development
+.env.production
+.env.test
+
+# =========================
+# OS / Editor Files
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+.idea/
+.vscode/

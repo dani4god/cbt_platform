@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "ssmcss-examiner"
+  },
+  "targets": {
+    "ssmcss-examiner": {
+      "hosting": {
+        "student_portal": [
+          "smmcss-examiner.web.app"
+        ],
+        "admin_dashboard": [
+          "smmcss-admin.web.app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
