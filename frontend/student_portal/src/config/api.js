@@ -3,7 +3,7 @@
 
 const API_ENDPOINTS = {
   development: 'http://localhost:8000/',
-  production: 'https://your-production-domain.com', // Replace with your actual production URL
+  production: 'https://cbt-platform.onrender.com', // Replace with your actual production URL
   staging: 'https://your-staging-domain.com' // Optional staging environment
 };
 
