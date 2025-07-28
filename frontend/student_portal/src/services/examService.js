@@ -1,124 +1,111 @@
 // src/services/examServices.js
 
-import axios from 'axios';
-
-// Base URL for your Django backend API
-const API_BASE_URL = 'https://cbt-platform.onrender.com';
-
-// Helper function to get the auth token
-const getAuthToken = () => {
-    return localStorage.getItem('authToken');
-};
-
-// Helper function to create authenticated axios instance
-const getAxiosInstance = () => {
-    const token = getAuthToken();
-    if (!token) {
-        console.error('Authentication token not found.');
-        throw new Error('Authentication token not found');
-    }
-
-    return axios.create({
-        baseURL: API_BASE_URL,
-        headers: {
-            'Authorization': `Token ${token}`,
-            'Content-Type': 'application/json',
-        },
-    });
-};
+import { examAPI, apiRequest, API_CONFIG } from './api';
 
 const examService = {
     // Test authentication
     testAuth: async () => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.get('auth/profile/');
-            return response.data;
+            const response = await apiRequest(API_CONFIG.ENDPOINTS.USER.PROFILE);
+            return response;
         } catch (error) {
             console.error('Auth test failed:', error);
             throw error;
         }
     },
 
+    // Get available exams
     getAvailableExams: async () => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.get('exams/available/'); // Fixed URL
-            return response.data;
+            return await examAPI.getAvailableExams();
         } catch (error) {
             console.error('Error fetching available exams:', error);
             throw error;
         }
     },
 
+    // Get past exam attempts
     getPastExamAttempts: async () => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.get('attempts/history/');
-            return response.data;
+            return await examAPI.getExamHistory();
         } catch (error) {
             console.error('Error fetching past exam attempts:', error);
             throw error;
         }
     },
 
+    // Start exam
     startExam: async (examId) => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.post(`exams/${examId}/start/`);
-            return response.data;
+            return await examAPI.startExam(examId);
         } catch (error) {
             console.error(`Error starting exam ${examId}:`, error);
             throw error;
         }
     },
 
+    // Get exam questions
     getExamQuestions: async (examId) => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.get(`exams/${examId}/questions/`);
-            return response.data;
+            return await examAPI.getExamQuestions(examId);
         } catch (error) {
             console.error(`Error fetching exam questions for ${examId}:`, error);
             throw error;
         }
     },
 
+    // Submit answer
     submitAnswer: async (attemptId, questionId, answerData) => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.post(`attempts/${attemptId}/submit-answer/`, {
-                question_id: questionId,
-                ...answerData
-            });
-            return response.data;
+            const { chosen_choice_id, answer_text = '' } = answerData;
+            return await examAPI.submitAnswer(attemptId, questionId, chosen_choice_id, answer_text);
         } catch (error) {
             console.error(`Error submitting answer for attempt ${attemptId}:`, error);
             throw error;
         }
     },
 
+    // Submit exam
     submitExam: async (attemptId) => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.post(`attempts/${attemptId}/submit/`);
-            return response.data;
+            return await examAPI.submitExam(attemptId);
         } catch (error) {
             console.error(`Error submitting exam ${attemptId}:`, error);
             throw error;
         }
     },
 
+    // Get exam results
     getExamResults: async (attemptId) => {
         try {
-            const api = getAxiosInstance();
-            const response = await api.get(`attempts/${attemptId}/results/`);
-            return response.data;
+            return await examAPI.getExamResults(attemptId);
         } catch (error) {
             console.error(`Error fetching exam results for ${attemptId}:`, error);
             throw error;
         }
     },
+
+    // Additional utility methods
+    getUserDashboard: async () => {
+        try {
+            return await apiRequest(API_CONFIG.ENDPOINTS.USER.DASHBOARD);
+        } catch (error) {
+            console.error('Error fetching user dashboard:', error);
+            throw error;
+        }
+    },
+
+    // Verify token
+    verifyToken: async () => {
+        try {
+            return await apiRequest(API_CONFIG.ENDPOINTS.AUTH.TOKEN_VERIFY, {
+                method: 'POST'
+            });
+        } catch (error) {
+            console.error('Token verification failed:', error);
+            throw error;
+        }
+    }
 };
 
 export default examService;
