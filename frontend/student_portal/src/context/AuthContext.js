@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/auth/';
+const API_BASE_URL = 'https://cbt-platform.onrender.com';
 
 // Create axios instance with interceptors
 const axiosInstance = axios.create({

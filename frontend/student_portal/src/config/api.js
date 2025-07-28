@@ -2,9 +2,9 @@
 // API Configuration matching your Django backend URLs
 
 const API_ENDPOINTS = {
-  development: 'http://localhost:8000/',
-  production: 'https://cbt-platform.onrender.com', // Replace with your actual production URL
-  staging: 'https://your-staging-domain.com' // Optional staging environment
+ 
+  production: 'https://cbt-platform.onrender.com', 
+  staging: 'https://your-staging-domain.com' 
 };
 
 const getCurrentEnvironment = () => {
