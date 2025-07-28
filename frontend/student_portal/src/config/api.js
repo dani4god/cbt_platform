@@ -1,5 +1,4 @@
-// src/config/api.js
-// API Configuration matching your Django backend URLs
+
 
 const API_ENDPOINTS = {
  
@@ -20,7 +19,7 @@ const getCurrentEnvironment = () => {
 };
 
 const getApiBaseUrl = () => {
-  // Allow direct override via environment variable
+  
   if (process.env.REACT_APP_API_BASE_URL) {
     return process.env.REACT_APP_API_BASE_URL;
   }
@@ -41,25 +40,25 @@ export const API_CONFIG = {
   ENDPOINTS: {
     // Student Portal Endpoints
     EXAMS: {
-      AVAILABLE: 'api/exams/available/',
-      QUESTIONS: (examId) => `api/exams/${examId}/questions/`,
-      START: (examId) => `api/exams/${examId}/start/`,
+      AVAILABLE: '/api/exams/available/',
+      QUESTIONS: (examId) => `/api/exams/${examId}/questions/`,
+      START: (examId) => `/api/exams/${examId}/start/`,
     },
     
     // Exam Attempt Endpoints
     ATTEMPTS: {
-      SUBMIT_ANSWER: (attemptId) => `api/attempts/${attemptId}/submit-answer/`,
-      SUBMIT: (attemptId) => `api/attempts/${attemptId}/submit/`,
-      RESULTS: (pk) => `api/attempts/${pk}/results/`,
-      HISTORY: 'api/attempts/history/',
+      SUBMIT_ANSWER: (attemptId) => `/api/attempts/${attemptId}/submit-answer/`,
+      SUBMIT: (attemptId) => `/api/attempts/${attemptId}/submit/`,
+      RESULTS: (pk) => `/api/attempts/${pk}/results/`,
+      HISTORY: '/api/attempts/history/',
     },
     
     // Authentication Endpoints (if you have them)
     AUTH: {
-      LOGIN: '/auth/login/',
-      LOGOUT: '/auth/logout/',
-      REGISTER: '/auth/register/',
-      REFRESH: '/auth/refresh/',
+      LOGIN: '/api/auth/login/',
+      LOGOUT: '/api/auth/logout/',
+      REGISTER: '/api/auth/register/',
+      REFRESH: '/api/auth/refresh/',
       TOKEN_VERIFY: '/auth/token/verify/',
     },
     
