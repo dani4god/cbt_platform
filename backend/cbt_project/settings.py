@@ -76,7 +76,9 @@ AUTHENTICATION_BACKENDS = [
 # If you need to allow credentials (cookies, HTTP authentication), set this to True.
 # We will likely need this for authentication later.
 CORS_ALLOW_CREDENTIALS = True
-ALLOWED_ORIGINS = os.environ.get("CORS_ALLOWED_ORIGINS")
+CORS_ALLOWED_ORIGINS = [
+    "https://examiner-txby.onrender.com"
+]
 # cbt_platform/backend/cbt_project/settings.py
 
 # In production, you will add your actual domain names here, e.g.:
