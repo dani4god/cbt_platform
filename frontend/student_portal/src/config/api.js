@@ -1,8 +1,6 @@
 
 const API_ENDPOINTS = {
-  development: 'http://localhost:8000',
-  production: 'https://cbt-platform.onrender.com', 
-  staging: 'https://your-staging-domain.com' 
+  production: 'https://cbt-platform.onrender.com',  
 };
 
 const getCurrentEnvironment = () => {

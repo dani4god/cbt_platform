@@ -1,6 +1,6 @@
 // src/services/examServices.js
 
-import { examAPI, apiRequest, API_CONFIG } from './api';
+import { examAPI, apiRequest, API_CONFIG } from '../config/api.js';
 
 const examService = {
     // Test authentication
