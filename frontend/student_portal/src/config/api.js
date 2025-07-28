@@ -1,6 +1,6 @@
-
 const API_ENDPOINTS = {
-  production: 'https://cbt-platform.onrender.com',  
+  production: 'https://cbt-platform.onrender.com', 
+ 
 };
 
 const getCurrentEnvironment = () => {

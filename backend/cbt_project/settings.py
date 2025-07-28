@@ -68,16 +68,17 @@ AUTHENTICATION_BACKENDS = [
  # "https://cbt-admin-dashboard.web.app",
 #]
 
-#CSRF_TRUSTED_ORIGINS = [
- #"http://localhost:3000", # Student portal local development
- #"http://localhost:3001"
+CSRF_TRUSTED_ORIGINS = [
+ "https://smmcss-examiner.web.app", # Student portal local development
  
-#]
+ 
+]
 # If you need to allow credentials (cookies, HTTP authentication), set this to True.
 # We will likely need this for authentication later.
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "https://smmcss-examiner.web.app"
+
 ]
 # cbt_platform/backend/cbt_project/settings.py
 
@@ -179,10 +180,10 @@ REST_FRAMEWORK = {
 
 # Django-allauth settings (if you have them)
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
 # ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-# ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 # ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 # ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 # ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True

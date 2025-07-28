@@ -89,4 +89,7 @@ function App() {
     );
 }
 
-export default App;
+export default App;export const API_ENDPOINTS = {
+  production: 'https://cbt-platform.onrender.com',
+};
+

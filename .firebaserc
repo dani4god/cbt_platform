@@ -10,6 +10,9 @@
         ],
         "admin_dashboard": [
           "smmcss-admin.web.app"
+        ],
+        "student-portal": [
+          "smmcss-examiner"
         ]
       }
     }
