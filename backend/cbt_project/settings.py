@@ -70,6 +70,7 @@ AUTHENTICATION_BACKENDS = [
 
 CSRF_TRUSTED_ORIGINS = [
  "https://smmcss-examiner.web.app", # Student portal local development
+ "http://localhost:3000"
  
  
 ]
@@ -77,9 +78,10 @@ CSRF_TRUSTED_ORIGINS = [
 # We will likely need this for authentication later.
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "https://smmcss-examiner.web.app"
-
+    "https://smmcss-examiner.web.app",
+    "http://localhost:3000",
 ]
+
 # cbt_platform/backend/cbt_project/settings.py
 
 # In production, you will add your actual domain names here, e.g.:
