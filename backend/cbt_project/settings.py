@@ -77,7 +77,7 @@ AUTHENTICATION_BACKENDS = [
 # We will likely need this for authentication later.
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "https://examiner-txby.onrender.com"
+    "https://smmcss-examiner.web.app"
 ]
 # cbt_platform/backend/cbt_project/settings.py
 
